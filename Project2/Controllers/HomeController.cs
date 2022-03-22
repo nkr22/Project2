@@ -13,6 +13,8 @@ namespace Project2.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private TourContext tourContext { get; set; }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -27,7 +29,6 @@ namespace Project2.Controllers
         {
             return View();
         }
-
 
         [HttpGet]
         public IActionResult AddTour()
@@ -70,7 +71,7 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Edit(int tourid)
         {
-            ViewBag.Tours = tourContext.Tours.ToList();
+            ViewBag.Times = tourContext.Times.ToList();
 
             var tour = tourContext.Tours.Single(x => x.TourId == tourid);
 
@@ -79,27 +80,27 @@ namespace Project2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(ContactInfo ci)
+        public IActionResult Edit(Tour t)
         {
-            tourContext.Update(ci);
+            tourContext.Update(t);
             tourContext.SaveChanges();
 
-            return RedirectToAction("Index")
+            return RedirectToAction("Index");
 
         }
 
         [HttpGet]
         public IActionResult Delete( int tourid)
         {
-            var tour = tourContext.tours.Single(x => x.TourId == tourid);
+            var tour = tourContext.Tours.Single(x => x.TourId == tourid);
             return View(tour);
 
         }
 
         [HttpPost]
-        public IActionResult Delete(ContactInfo ci)
+        public IActionResult Delete(Tour t)
         {
-            tourContext.Remove(ci);
+            tourContext.Remove(t);
             tourContext.SaveChanges();
 
             return RedirectToAction("Index");
