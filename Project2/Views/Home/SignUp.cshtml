@@ -1,8 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{      ViewData["Title"] = "Sign Up Page";
+﻿@{ 
+    ViewData["Title"] = "Sign Up Page";
 }
+
+@model Project2.Models.Time
+
 <section class="container-fluid" style="background-color: #8fc4b7;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,26 +11,23 @@
                 <br />
                 <br />
                 <div class="card rounded-3">
-                   
-                    <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
 
-                        <form class="px-md-2">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Sign Up</h3>
+
+                        <form class="px-md-2" method="post">
 
                             <div class="row">
-                                <div class="col-md-6 mb-4">
+                                
 
-                                    <div class="form-outline datepicker">
-                                        <input type="datetime-local"
-                                               class="form-control"
-                                               id="exampleDatepicker1" />
-                                        <label for="exampleDatepicker1" class="form-label">Select a date</label>
-                                    </div>
+                                    @foreach (Time t in ViewBag.Times)
+                                    {
+                                        <a class="btn btn-success btn-block mb-1" asp-controller="Home" asp-action="AddTour" asp-route-id="@t.SlotId">@t.Month @t.Day at @t.Hour </a>
+                                    }
 
-                                </div>
+                               
                             </div>
 
-                            <button type="submit" class="btn btn-success btn-lg mb-1">Sign Up</button>
 
                         </form>
 
