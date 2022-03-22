@@ -28,10 +28,7 @@ namespace Project2.Controllers
             return View();
         }
 
-        public IActionResult AddTour()
-        {
-            return View();
-        }
+
         [HttpGet]
         public IActionResult AddTour()
         {
@@ -75,7 +72,7 @@ namespace Project2.Controllers
         {
             ViewBag.Tours = tourContext.Tours.ToList();
 
-            var tour = tourContext.tours.Single(x => x.TourId == tourid);
+            var tour = tourContext.Tours.Single(x => x.TourId == tourid);
 
             return View("AddTour", tour);
 
