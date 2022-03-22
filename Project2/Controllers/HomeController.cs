@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project2.Models;
 using System;
@@ -11,13 +12,12 @@ namespace Project2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
         private TourContext tourContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TourContext newTour)
         {
-            _logger = logger;
+            tourContext = newTour;
         }
 
         public IActionResult Index()
@@ -31,47 +31,50 @@ namespace Project2.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddTour()
+        public IActionResult AddTour(int id)
         {
 
-            ViewBag.Times = tourContext.Times.ToList();
+            ViewBag.TimeId = id;
 
-            return View();
+            return View("AddTour");
         }
 
         [HttpPost]
         public IActionResult AddTour(Tour t)
         {
-
+            
             if (ModelState.IsValid)
             {
+                var ttime= tourContext.Times.Single(x => x.SlotId == t.SlotId);
+                ttime.Filled = true;
                 tourContext.Add(t);
                 tourContext.SaveChanges();
-                return View();
+                return RedirectToAction("Index");
             }
             else
             {
-                ViewBag.Times = tourContext.Times.ToList();
                 return View(t);
             }
 
         }
-
+        [HttpGet]
         public IActionResult SignUp()
         {
+            ViewBag.Times = tourContext.Times.Where(x => x.Filled == false).ToList();
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult SignUp(Time t)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var ts = t.SlotId;
+            return RedirectToAction("AddTour", ts);
         }
 
+
         [HttpGet]
-        public IActionResult Edit(int tourid)
+        public IActionResult Edit(int tourid, int slotid)
         {
-            ViewBag.Times = tourContext.Times.ToList();
+            ViewBag.TimeId = slotid;
 
             var tour = tourContext.Tours.Single(x => x.TourId == tourid);
 
@@ -82,28 +85,35 @@ namespace Project2.Controllers
         [HttpPost]
         public IActionResult Edit(Tour t)
         {
-            tourContext.Update(t);
-            tourContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                tourContext.Update(t);
+                tourContext.SaveChanges();
 
-            return RedirectToAction("Index");
-
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("AddTour", t);
+            }
+            
         }
 
-        [HttpGet]
-        public IActionResult Delete( int tourid)
+        public IActionResult Delete(Tour t, int id)
         {
-            var tour = tourContext.Tours.Single(x => x.TourId == tourid);
-            return View(tour);
-
-        }
-
-        [HttpPost]
-        public IActionResult Delete(Tour t)
-        {
+            ViewBag.TimeId = id;
+            var ttime = tourContext.Times.Single(x => x.SlotId == t.SlotId);
+            ttime.Filled = false;
             tourContext.Remove(t);
             tourContext.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult ViewTours (Tour t)
+        {
+            var tours = tourContext.Tours.Include(x => x.Slot).ToList();
+            return View(tours);
         }
 
     }

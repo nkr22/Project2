@@ -16,7 +16,7 @@ namespace Project2.Models
         public int Day { get; set; }
 
         [Required]
-        public string Times { get; set; }
+        public string Hour { get; set; }
 
         public bool Filled { get; set; } = false;
     }

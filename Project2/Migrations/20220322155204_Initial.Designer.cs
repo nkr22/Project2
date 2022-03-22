@@ -8,7 +8,7 @@ using Project2.Models;
 namespace Project2.Migrations
 {
     [DbContext(typeof(TourContext))]
-    [Migration("20220322011200_Initial")]
+    [Migration("20220322155204_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -16,28 +16,6 @@ namespace Project2.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
-
-            modelBuilder.Entity("Project2.Models.ContactInfo", b =>
-                {
-                    b.Property<int>("GroupId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("GroupName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("GroupId");
-
-                    b.ToTable("ContactInfos");
-                });
 
             modelBuilder.Entity("Project2.Models.Time", b =>
                 {
@@ -51,11 +29,11 @@ namespace Project2.Migrations
                     b.Property<bool>("Filled")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Month")
+                    b.Property<string>("Hour")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Times")
+                    b.Property<string>("Month")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -69,672 +47,728 @@ namespace Project2.Migrations
                             SlotId = 1,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "8:00 AM"
+                            Hour = "8:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 2,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "9:00 AM"
+                            Hour = "9:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 3,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "10:00 AM"
+                            Hour = "10:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 4,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "11:00 AM"
+                            Hour = "11:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 5,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "12:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 6,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "1:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 7,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "2:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 8,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "3:00 PM"
+                            Hour = "3:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 9,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "4:00 PM"
+                            Hour = "4:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 10,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "5:00 PM"
+                            Hour = "5:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 11,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "6:00 PM"
+                            Hour = "6:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 12,
                             Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "7:00 PM"
+                            Hour = "7:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 13,
-                            Day = 29,
+                            Day = 28,
                             Filled = false,
-                            Month = "March",
-                            Times = "8:00 AM"
+                            Hour = "8:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 14,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "9:00 AM"
+                            Hour = "8:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 15,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "10:00 AM"
+                            Hour = "9:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 16,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "11:00 AM"
+                            Hour = "10:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 17,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "12:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 18,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "1:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 19,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "2:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 20,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "3:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 21,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "4:00 PM"
+                            Hour = "3:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 22,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "5:00 PM"
+                            Hour = "4:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 23,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "6:00 PM"
+                            Hour = "5:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 24,
                             Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "7:00 PM"
+                            Hour = "6:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 25,
-                            Day = 30,
+                            Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "8:00 AM"
+                            Hour = "7:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 26,
-                            Day = 30,
+                            Day = 29,
                             Filled = false,
-                            Month = "March",
-                            Times = "9:00 AM"
+                            Hour = "8:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 27,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "10:00 AM"
+                            Hour = "8:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 28,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "11:00 AM"
+                            Hour = "9:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 29,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "12:00 PM"
+                            Hour = "10:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 30,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "1:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 31,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "2:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 32,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "3:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 33,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "4:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 34,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "5:00 PM"
+                            Hour = "3:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 35,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "6:00 PM"
+                            Hour = "4:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 36,
                             Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "7:00 PM"
+                            Hour = "5:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 37,
-                            Day = 31,
+                            Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "8:00 AM"
+                            Hour = "6:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 38,
-                            Day = 31,
+                            Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "9:00 AM"
+                            Hour = "7:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 39,
-                            Day = 31,
+                            Day = 30,
                             Filled = false,
-                            Month = "March",
-                            Times = "10:00 AM"
+                            Hour = "8:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 40,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "11:00 AM"
+                            Hour = "8:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 41,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "12:00 PM"
+                            Hour = "9:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 42,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "1:00 PM"
+                            Hour = "10:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 43,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "2:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 44,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "3:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 45,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "4:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 46,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "5:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 47,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "6:00 PM"
+                            Hour = "3:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 48,
                             Day = 31,
                             Filled = false,
-                            Month = "March",
-                            Times = "7:00 PM"
+                            Hour = "4:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 49,
-                            Day = 1,
+                            Day = 31,
                             Filled = false,
-                            Month = "April",
-                            Times = "8:00 AM"
+                            Hour = "5:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 50,
-                            Day = 1,
+                            Day = 31,
                             Filled = false,
-                            Month = "April",
-                            Times = "9:00 AM"
+                            Hour = "6:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 51,
-                            Day = 1,
+                            Day = 31,
                             Filled = false,
-                            Month = "April",
-                            Times = "10:00 AM"
+                            Hour = "7:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 52,
-                            Day = 1,
+                            Day = 31,
                             Filled = false,
-                            Month = "April",
-                            Times = "11:00 AM"
+                            Hour = "8:00 PM",
+                            Month = "March"
                         },
                         new
                         {
                             SlotId = 53,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "12:00 PM"
+                            Hour = "8:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 54,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "1:00 PM"
+                            Hour = "9:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 55,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "2:00 PM"
+                            Hour = "10:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 56,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "3:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 57,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "4:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 58,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "5:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 59,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "6:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 60,
                             Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "7:00 PM"
+                            Hour = "3:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 61,
-                            Day = 2,
+                            Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "8:00 AM"
+                            Hour = "4:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 62,
-                            Day = 2,
+                            Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "9:00 AM"
+                            Hour = "5:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 63,
-                            Day = 2,
+                            Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "10:00 AM"
+                            Hour = "6:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 64,
-                            Day = 2,
+                            Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "11:00 AM"
+                            Hour = "7:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 65,
-                            Day = 2,
+                            Day = 1,
                             Filled = false,
-                            Month = "April",
-                            Times = "12:00 PM"
+                            Hour = "8:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 66,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "1:00 PM"
+                            Hour = "8:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 67,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "2:00 PM"
+                            Hour = "9:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 68,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "3:00 PM"
+                            Hour = "10:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 69,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "4:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 70,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "5:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 71,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "6:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 72,
                             Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "7:00 PM"
+                            Hour = "2:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 73,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "8:00 AM"
+                            Hour = "3:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 74,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "9:00 AM"
+                            Hour = "4:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 75,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "10:00 AM"
+                            Hour = "5:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 76,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "11:00 AM"
+                            Hour = "6:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 77,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "12:00 PM"
+                            Hour = "7:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 78,
-                            Day = 3,
+                            Day = 2,
                             Filled = false,
-                            Month = "April",
-                            Times = "1:00 PM"
+                            Hour = "8:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 79,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "2:00 PM"
+                            Hour = "8:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 80,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "3:00 PM"
+                            Hour = "9:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 81,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "4:00 PM"
+                            Hour = "10:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 82,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "5:00 PM"
+                            Hour = "11:00 AM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 83,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "6:00 PM"
+                            Hour = "12:00 PM",
+                            Month = "April"
                         },
                         new
                         {
                             SlotId = 84,
                             Day = 3,
                             Filled = false,
-                            Month = "April",
-                            Times = "7:00 PM"
+                            Hour = "1:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 85,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "2:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 86,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "3:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 87,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "4:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 88,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "5:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 89,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "6:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 90,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "7:00 PM",
+                            Month = "April"
+                        },
+                        new
+                        {
+                            SlotId = 91,
+                            Day = 3,
+                            Filled = false,
+                            Hour = "8:00 PM",
+                            Month = "April"
                         });
                 });
 
@@ -744,15 +778,24 @@ namespace Project2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("GroupId")
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GroupSize")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SlotId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("TourId");
-
-                    b.HasIndex("GroupId");
 
                     b.HasIndex("SlotId");
 
@@ -761,12 +804,6 @@ namespace Project2.Migrations
 
             modelBuilder.Entity("Project2.Models.Tour", b =>
                 {
-                    b.HasOne("Project2.Models.ContactInfo", "Group")
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Project2.Models.Time", "Slot")
                         .WithMany()
                         .HasForeignKey("SlotId")
