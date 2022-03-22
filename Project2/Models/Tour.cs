@@ -10,12 +10,12 @@ namespace Project2.Models
         public int TourId { get; set; }
 
         [Required]
-        // Build Foreign Key Relationship
+        // Build Foreign Key Relationship with Time
         public int SlotId { get; set; }
-        //BUILD MODEL FIRST
-        public Times Slot { get; set; }
+        public Time Slot { get; set; }
 
         [Required]
+        // Builds Foreign Key Relationship with Contact Info
         public int GroupId { get; set; }
         public ContactInfo Group { get; set; }
     }

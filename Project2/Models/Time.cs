@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Project2.Models
 {
-    public class Times
+    public class Time
     {
         [Key]
         [Required]
@@ -16,6 +16,8 @@ namespace Project2.Models
         public int Day { get; set; }
 
         [Required]
-        public string Time { get; set; }
+        public string Times { get; set; }
+
+        public bool Filled { get; set; } = false;
     }
 }
