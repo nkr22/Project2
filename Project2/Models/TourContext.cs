@@ -17,6 +17,7 @@ namespace Project2.Models
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Time> Times { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Time>().HasData(
