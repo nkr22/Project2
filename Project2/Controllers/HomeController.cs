@@ -28,9 +28,35 @@ namespace Project2.Controllers
             return View();
         }
 
-        public IActionResult Form()
+        public IActionResult AddTour()
         {
             return View();
+        }
+        [HttpGet]
+        public IActionResult AddTour()
+        {
+
+            ViewBag.Times = tourContext.Times.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTour(Tour t)
+        {
+
+            if (ModelState.IsValid)
+            {
+                tourContext.Add(t);
+                tourContext.SaveChanges();
+                return View();
+            }
+            else
+            {
+                ViewBag.Times = tourContext.Times.ToList();
+                return View(t);
+            }
+
         }
 
         public IActionResult SignUp()
