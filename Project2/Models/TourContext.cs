@@ -13,6 +13,7 @@ namespace Project2.Models
             //leave blank for now
         }
 
+        public DbSet<Tour> Tours { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Time> Times { get; set; }
 
