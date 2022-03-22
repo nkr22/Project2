@@ -69,5 +69,44 @@ namespace Project2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public IActionResult Edit(int tourid)
+        {
+            ViewBag.Tours = tourContext.Tours.ToList();
+
+            var tour = tourContext.tours.Single(x => x.TourId == tourid);
+
+            return View("AddTour", tour);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ContactInfo ci)
+        {
+            tourContext.Update(ci);
+            tourContext.SaveChanges();
+
+            return RedirectToAction("Index")
+
+        }
+
+        [HttpGet]
+        public IActionResult Delete( int tourid)
+        {
+            var tour = tourContext.tours.Single(x => x.TourId == tourid);
+            return View(tour);
+
+        }
+
+        [HttpPost]
+        public IActionResult Delete(ContactInfo ci)
+        {
+            tourContext.Remove(ci);
+            tourContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
