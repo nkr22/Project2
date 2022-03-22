@@ -13,6 +13,8 @@ namespace Project2.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private TourContext tourContext { get; set; }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -28,10 +30,7 @@ namespace Project2.Controllers
             return View();
         }
 
-        public IActionResult AddTour()
-        {
-            return View();
-        }
+       
         [HttpGet]
         public IActionResult AddTour()
         {
@@ -87,7 +86,7 @@ namespace Project2.Controllers
             tourContext.Update(ci);
             tourContext.SaveChanges();
 
-            return RedirectToAction("Index")
+            return RedirectToAction("Index");
 
         }
 
